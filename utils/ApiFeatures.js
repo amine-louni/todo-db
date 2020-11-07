@@ -52,7 +52,7 @@ class ApiFeatures {
 
   paginate() {
     // 4 ) Pagination | query.skip(int).limit(int)
-    const limit = this.queryString.limit * 1 || 100;
+    const limit = this.queryString.limit * 1 || 5;
     const page = this.queryString.page * 1 || 1;
     const skips = (page - 1) * limit;
     this.mongoQuery = this.mongoQuery.skip(skips).limit(limit);

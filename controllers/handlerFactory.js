@@ -11,12 +11,17 @@ exports.getAll = (Model) =>
       .sort()
       .selectFields()
       .paginate();
-
+    let all;
+    Model.count(function (err, count) {
+      all = count;
+    });
     //EXECUTE QUERY
     const docs = await apiFeats.mongoQuery;
+
     res.status(200).json({
       status: 'success ✔',
       results: docs.length,
+      all: all,
       req_at: req.requestedTime,
       data: {
         docs,
