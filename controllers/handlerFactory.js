@@ -12,7 +12,7 @@ exports.getAll = (Model) =>
       .selectFields()
       .paginate();
     let all;
-    Model.count(function (err, count) {
+    await Model.count(function (err, count) {
       all = count;
     });
     //EXECUTE QUERY
