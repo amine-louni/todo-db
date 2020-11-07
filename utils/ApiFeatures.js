@@ -31,7 +31,7 @@ class ApiFeatures {
         this.queryString.sort.split(',').join(' ')
       );
     } else {
-      this.mongoQuery = this.mongoQuery.sort({ createdAt: -1 });
+      this.mongoQuery = this.mongoQuery.sort({ _id: -1 });
     }
 
     return this;
